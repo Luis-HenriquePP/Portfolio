@@ -1,0 +1,1942 @@
+/* =========================================================
+   FONTE
+   ========================================================= */
+
+@import url(
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
+);
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+
+    --bg: #070b12;
+
+    --surface: #0d131d;
+
+    --card: #111a25;
+
+    --text: #f4f7fb;
+
+    --muted: #98a5b5;
+
+    --primary: #36c5ff;
+
+    --primary-light: #7ddcff;
+
+    --border: #1c2938;
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 80px;
+}
+
+
+body {
+    margin: 0;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family: 'Inter', sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #263545;
+
+    border-radius: 20px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+
+    background: rgba(7, 11, 18, 0.85);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    transition: 0.3s ease;
+}
+
+
+.navbar.scrolled {
+
+    background: rgba(7, 11, 18, 0.97);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+.navbar-brand {
+
+    font-size: 1.5rem;
+
+    color: #fff !important;
+}
+
+
+.navbar-brand span {
+
+    color: var(--primary);
+}
+
+
+.nav-link {
+
+    color: #aab5c2 !important;
+
+    margin-left: 18px;
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+
+    transition: 0.25s ease;
+}
+
+
+.nav-link:hover {
+
+    color: var(--primary) !important;
+}
+
+
+.navbar-toggler {
+
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+
+.navbar-toggler:focus {
+
+    box-shadow:
+        0 0 0 0.2rem rgba(54, 197, 255, 0.15);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 120px 0 80px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Glow */
+
+.hero-glow {
+
+    position: absolute;
+
+    width: 520px;
+
+    height: 520px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    opacity: 0.08;
+
+    filter: blur(130px);
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+
+/* Estrelas */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            1px 1px at 15% 20%,
+            rgba(255,255,255,.4),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 30% 70%,
+            rgba(255,255,255,.3),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 75% 25%,
+            rgba(255,255,255,.3),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 90% 60%,
+            rgba(255,255,255,.3),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+
+/* Conteúdo */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   FOTO
+   ========================================================= */
+
+.profile-wrap {
+
+    position: relative;
+
+    display: inline-block;
+
+    margin-bottom: 25px;
+}
+
+
+.profile-wrap::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -18px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(54, 197, 255, 0.1);
+
+    animation: pulse 3s infinite;
+}
+
+
+.profile-wrap::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -9px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(54, 197, 255, 0.35);
+}
+
+
+.profile-photo {
+
+    width: 250px;
+
+    height: 250px;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    border-radius: 50%;
+
+    border: 4px solid var(--bg);
+
+    box-shadow:
+        0 0 45px rgba(54, 197, 255, 0.2);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+}
+
+
+/* =========================================================
+   HERO TEXTO
+   ========================================================= */
+
+.eyebrow {
+
+    color: var(--primary);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 12px;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+
+    font-weight: 800;
+
+    line-height: 1.02;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 22px;
+}
+
+
+.hero h1 span {
+
+    color: var(--primary);
+}
+
+
+.hero-description {
+
+    color: var(--muted);
+
+    font-size: 1.05rem;
+
+    margin: 0 auto 30px;
+}
+
+
+.hero-description span {
+
+    color: var(--primary);
+
+    margin: 0 6px;
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.hero-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.btn-primary-custom,
+.btn-outline-custom {
+
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+
+.btn-primary-custom {
+
+    background: var(--primary);
+
+    color: #031018;
+
+    border: 1px solid var(--primary);
+}
+
+
+.btn-primary-custom:hover {
+
+    background: var(--primary-light);
+
+    color: #031018;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(54, 197, 255, 0.2);
+}
+
+
+.btn-outline-custom {
+
+    border: 1px solid #526171;
+
+    color: #fff;
+}
+
+
+.btn-outline-custom:hover {
+
+    border-color: var(--primary);
+
+    color: var(--primary);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
+.section {
+
+    padding: 110px 0;
+
+    position: relative;
+}
+
+
+.section-alt {
+
+    background: var(--surface);
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 55px;
+}
+
+
+.section-heading span {
+
+    color: var(--primary);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+}
+
+
+.section-heading h2 {
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    margin: 0;
+}
+
+
+.section-heading::after {
+
+    content: "";
+
+    width: 70px;
+
+    height: 1px;
+
+    background: var(--border);
+
+    margin-left: 5px;
+}
+
+
+/* =========================================================
+   SOBRE
+   ========================================================= */
+
+.about-text p {
+
+    color: var(--muted);
+
+    font-size: 1.05rem;
+
+    line-height: 1.9;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   INFO BOX
+   ========================================================= */
+
+.info-box {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 12px 25px;
+}
+
+
+.info-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.info-item:last-child {
+
+    border-bottom: none;
+}
+
+
+.info-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 10px;
+
+    display: grid;
+
+    place-items: center;
+
+    color: var(--primary);
+
+    background: rgba(54, 197, 255, 0.08);
+}
+
+
+.info-item strong {
+
+    display: block;
+
+    font-size: 0.9rem;
+}
+
+
+.info-item small {
+
+    display: block;
+
+    color: var(--muted);
+
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.timeline {
+
+    max-width: 850px;
+
+    position: relative;
+}
+
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 24px;
+
+    top: 24px;
+
+    bottom: 25px;
+
+    width: 1px;
+
+    background: var(--border);
+}
+
+
+.timeline-item {
+
+    display: flex;
+
+    gap: 22px;
+
+    margin-bottom: 40px;
+
+    position: relative;
+}
+
+
+.timeline-item:last-child {
+
+    margin-bottom: 0;
+}
+
+
+.timeline-dot {
+
+    min-width: 48px;
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--primary);
+
+    background: var(--surface);
+
+    color: var(--primary);
+
+    display: grid;
+
+    place-items: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.timeline-content small {
+
+    color: var(--primary);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.timeline-content h3 {
+
+    font-size: 1.15rem;
+
+    margin: 7px 0;
+}
+
+
+.timeline-content p {
+
+    color: var(--muted);
+
+    margin: 0 0 5px;
+}
+
+
+.timeline-content b {
+
+    color: #667383;
+
+    font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   TECNOLOGIAS
+   ========================================================= */
+
+.technologies-section {
+
+    min-height: 850px;
+
+    padding: 70px 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #04050d;
+}
+
+
+/* Estrelas */
+
+.technologies-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .8;
+
+    background-image:
+        radial-gradient(
+            1px 1px at 10% 20%,
+            rgba(255,255,255,.35),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 25% 70%,
+            rgba(255,255,255,.3),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 43% 25%,
+            rgba(255,255,255,.4),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 62% 75%,
+            rgba(255,255,255,.25),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 80% 20%,
+            rgba(255,255,255,.3),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   TÍTULO TECNOLOGIAS
+   ========================================================= */
+
+.technologies-title {
+
+    position: relative;
+
+    z-index: 10;
+
+    text-align: center;
+
+    margin-bottom: 5px;
+}
+
+
+.technologies-title h2 {
+
+    color: #fff;
+
+    font-size: 2.3rem;
+
+    font-weight: 800;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+
+.technologies-content {
+
+    min-height: 700px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   INFORMAÇÃO
+   ========================================================= */
+
+.technology-info {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 40%;
+
+    max-width: 500px;
+
+    z-index: 20;
+}
+
+
+.technology-category {
+
+    display: block;
+
+    color: var(--primary);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 12px;
+}
+
+
+.technology-info h3 {
+
+    font-size: 1.55rem;
+
+    font-weight: 800;
+
+    margin-bottom: 13px;
+}
+
+
+.technology-info p {
+
+    color: var(--muted);
+
+    line-height: 1.8;
+
+    font-size: 0.98rem;
+
+    max-width: 500px;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   ORBIT SYSTEM
+   ========================================================= */
+
+.orbit-system {
+
+    position: absolute;
+
+    width: 680px;
+
+    height: 680px;
+
+    right: -20px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   ÓRBITAS
+   ========================================================= */
+
+.orbit {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    pointer-events: none;
+}
+
+
+.orbit-1 {
+
+    width: 220px;
+
+    height: 220px;
+}
+
+
+.orbit-2 {
+
+    width: 390px;
+
+    height: 390px;
+}
+
+
+.orbit-3 {
+
+    width: 620px;
+
+    height: 620px;
+}
+
+
+/* =========================================================
+   CENTRO
+   ========================================================= */
+
+.orbit-center {
+
+    position: absolute;
+
+    width: 78px;
+
+    height: 78px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #1d2632,
+            #111821
+        );
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 15;
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,.4);
+}
+
+
+.orbit-center span {
+
+    color: white;
+
+    font-size: 0.6rem;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   TECNOLOGIAS
+   ========================================================= */
+
+.tech-orbit {
+
+    position: absolute;
+
+    width: 76px;
+
+    height: 76px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(38,43,53,.95),
+            rgba(19,24,32,.9)
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+
+.tech-orbit img {
+
+    width: 42px;
+
+    height: 42px;
+
+    object-fit: contain;
+
+    transition: .3s ease;
+}
+
+
+.tech-orbit:hover {
+
+    transform: scale(1.08);
+
+    border-color: rgba(54,197,255,.7);
+
+    box-shadow:
+        0 0 30px rgba(54,197,255,.18);
+}
+
+
+.tech-orbit:hover img {
+
+    transform: scale(1.1);
+}
+
+
+.tech-orbit.active {
+
+    border-color: rgba(54,197,255,.85);
+
+    box-shadow:
+        0 0 0 5px rgba(54,197,255,.04),
+        0 0 35px rgba(54,197,255,.25);
+}
+
+
+.tech-github img {
+
+    filter: invert(1);
+}
+
+
+@keyframes floating {
+
+    0%,
+    100% {
+
+        margin-top: 0;
+
+    }
+
+    50% {
+
+        margin-top: -5px;
+
+    }
+
+}
+
+
+/* =========================================================
+   POSIÇÕES
+   ========================================================= */
+
+.tech-postgresql {
+
+    top: 5%;
+
+    left: 32%;
+}
+
+
+.tech-sql {
+
+    top: 18%;
+
+    left: 12%;
+}
+
+
+.tech-html {
+
+    top: 35%;
+
+    left: 31%;
+}
+
+
+.tech-css {
+
+    top: 35%;
+
+    right: 25%;
+}
+
+
+.tech-js {
+
+    top: 54%;
+
+    left: 35%;
+}
+
+
+.tech-python {
+
+    top: 54%;
+
+    right: 25%;
+}
+
+
+.tech-java {
+
+    bottom: 13%;
+
+    left: 20%;
+}
+
+
+.tech-go {
+
+    top: 48%;
+
+    left: 0;
+}
+
+
+.tech-git {
+
+    bottom: 8%;
+
+    left: 39%;
+}
+
+
+.tech-github {
+
+    bottom: 22%;
+
+    right: 9%;
+}
+
+
+.tech-bootstrap {
+
+    top: 46%;
+
+    right: 0;
+}
+
+
+/* =========================================================
+   PROJETOS
+   ========================================================= */
+
+.project-card {
+
+    height: 100%;
+
+    display: flex;
+
+    gap: 22px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 28px;
+
+    transition: .25s ease;
+}
+
+
+.project-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.2);
+}
+
+
+.project-icon {
+
+    min-width: 48px;
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 10px;
+
+    background: rgba(54,197,255,.08);
+
+    display: grid;
+
+    place-items: center;
+
+    color: var(--primary);
+
+    font-size: 1.35rem;
+}
+
+
+.project-content small {
+
+    color: var(--primary);
+
+    font-size: .7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.project-content h3 {
+
+    font-size: 1.25rem;
+
+    margin: 7px 0 12px;
+}
+
+
+.project-content p {
+
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin: 18px 0;
+}
+
+
+.tags span {
+
+    color: #aeb9c6;
+
+    font-size: .68rem;
+
+    border: 1px solid var(--border);
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+}
+
+
+.project-content a {
+
+    color: var(--primary);
+
+    font-size: .82rem;
+
+    font-weight: 700;
+}
+
+
+.project-content a:hover {
+
+    color: var(--primary-light);
+}
+
+
+/* =========================================================
+   CONTATO
+   ========================================================= */
+
+.contact-section {
+
+    min-height: 55vh;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.contact-text {
+
+    color: var(--muted);
+
+    font-size: 1.05rem;
+
+    margin-bottom: 30px;
+}
+
+
+.contact-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.contact-links a {
+
+    color: white;
+
+    border: 1px solid var(--border);
+
+    padding: 13px 22px;
+
+    border-radius: 9px;
+
+    transition: .25s ease;
+}
+
+
+.contact-links a:hover {
+
+    border-color: var(--primary);
+
+    color: var(--primary);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 28px;
+
+    border-top: 1px solid var(--border);
+
+    color: #667383;
+
+    font-size: .75rem;
+}
+
+
+footer p {
+
+    margin: 5px;
+}
+
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(18px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+
+.reveal.show {
+
+    opacity: 1;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .orbit-system {
+
+        width: 600px;
+
+        height: 600px;
+
+        right: -100px;
+    }
+
+
+    .orbit-3 {
+
+        width: 550px;
+
+        height: 550px;
+    }
+
+
+    .orbit-2 {
+
+        width: 350px;
+
+        height: 350px;
+    }
+
+
+    .orbit-1 {
+
+        width: 200px;
+
+        height: 200px;
+    }
+
+
+    .tech-orbit {
+
+        width: 70px;
+
+        height: 70px;
+    }
+
+
+    .tech-orbit img {
+
+        width: 38px;
+
+        height: 38px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+
+        padding-top: 120px;
+    }
+
+
+    .profile-photo {
+
+        width: 155px;
+
+        height: 155px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 2.8rem;
+    }
+
+
+    .hero-description {
+
+        font-size: .95rem;
+    }
+
+
+    .section {
+
+        padding: 80px 0;
+    }
+
+
+    .section-heading {
+
+        margin-bottom: 40px;
+    }
+
+
+    .nav-link {
+
+        margin-left: 0;
+
+        padding: 10px 0;
+    }
+
+
+    /* =====================================================
+       TECNOLOGIAS MOBILE
+       ===================================================== */
+
+    .technologies-section {
+
+        min-height: auto;
+
+        padding: 80px 0;
+    }
+
+
+    .technologies-title {
+
+        margin-bottom: 30px;
+    }
+
+
+    .technologies-content {
+
+        min-height: auto;
+
+        display: flex;
+
+        flex-direction: column;
+    }
+
+
+    .technology-info {
+
+        position: relative;
+
+        left: auto;
+
+        top: auto;
+
+        transform: none;
+
+        width: 100%;
+
+        max-width: 100%;
+
+        text-align: center;
+
+        margin-bottom: 40px;
+    }
+
+
+    .technology-info p {
+
+        margin: 0 auto;
+
+        max-width: 450px;
+    }
+
+
+    .orbit-system {
+
+        position: relative;
+
+        top: auto;
+
+        right: auto;
+
+        transform: none;
+
+        width: min(94vw, 570px);
+
+        height: min(94vw, 570px);
+
+        margin: auto;
+    }
+
+
+    .orbit-3 {
+
+        width: 94%;
+
+        height: 94%;
+    }
+
+
+    .orbit-2 {
+
+        width: 59%;
+
+        height: 59%;
+    }
+
+
+    .orbit-1 {
+
+        width: 32%;
+
+        height: 32%;
+    }
+
+
+    .tech-orbit {
+
+        width: 62px;
+
+        height: 62px;
+    }
+
+
+    .tech-orbit img {
+
+        width: 34px;
+
+        height: 34px;
+    }
+
+
+    .tech-postgresql {
+
+        top: 2%;
+
+        left: 38%;
+    }
+
+
+    .tech-sql {
+
+        top: 18%;
+
+        left: 8%;
+    }
+
+
+    .tech-html {
+
+        top: 27%;
+
+        left: 30%;
+    }
+
+
+    .tech-css {
+
+        top: 27%;
+
+        right: 30%;
+    }
+
+
+    .tech-js {
+
+        top: 48%;
+
+        left: 31%;
+    }
+
+
+    .tech-python {
+
+        top: 48%;
+
+        right: 31%;
+    }
+
+
+    .tech-go {
+
+        top: 48%;
+
+        left: -2%;
+    }
+
+
+    .tech-java {
+
+        bottom: 8%;
+
+        left: 22%;
+    }
+
+
+    .tech-git {
+
+        bottom: 3%;
+
+        left: 38%;
+    }
+
+
+    .tech-github {
+
+        bottom: 8%;
+
+        right: 9%;
+    }
+
+
+    .tech-bootstrap {
+
+        top: 48%;
+
+        right: -2%;
+    }
+
+
+    .project-card {
+
+        flex-direction: column;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+
+        font-size: 2.35rem;
+    }
+
+
+    .eyebrow {
+
+        font-size: .6rem;
+
+        letter-spacing: 2.5px;
+    }
+
+
+    .profile-photo {
+
+        width: 135px;
+
+        height: 135px;
+    }
+
+
+    .hero-buttons a {
+
+        width: 100%;
+
+        max-width: 230px;
+
+        text-align: center;
+    }
+
+
+    .timeline-item {
+
+        gap: 14px;
+    }
+
+
+    .timeline-dot {
+
+        min-width: 42px;
+
+        width: 42px;
+
+        height: 42px;
+    }
+
+
+    .timeline-content h3 {
+
+        font-size: 1rem;
+    }
+
+
+    .timeline-content p {
+
+        font-size: .85rem;
+    }
+
+
+    .orbit-system {
+
+        width: 94vw;
+
+        height: 94vw;
+    }
+
+
+    .tech-orbit {
+
+        width: 54px;
+
+        height: 54px;
+    }
+
+
+    .tech-orbit img {
+
+        width: 29px;
+
+        height: 29px;
+    }
+
+
+    .orbit-center {
+
+        width: 65px;
+
+        height: 65px;
+    }
+
+
+    .orbit-center span {
+
+        font-size: .5rem;
+    }
+
+
+    .technology-info h3 {
+
+        font-size: 1.35rem;
+    }
+
+
+    .technology-info p {
+
+        font-size: .85rem;
+
+        padding: 0 15px;
+    }
+
+
+    .project-card {
+
+        padding: 22px;
+    }
+
+
+    .contact-links a {
+
+        width: 100%;
+
+        max-width: 250px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+    }
+
+}
